@@ -19,6 +19,8 @@ TEST(ConvertKnots, Two) {
 }
 
 // ADD YOUR TESTS HERE:
-
+TEST (ConvertKnots, Three) {
+  EXPECT_NEAR(0.0575389724, knots_to_miles_per_minute(3), 0.01);
+}
 
 } // anonymous namespace
