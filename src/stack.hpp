@@ -1,35 +1,45 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+
+
 constexpr int STK_MAX = 1000;
 class Stack
 {
 	int _top;
 	char buf[STK_MAX];
 public:
-	Stack();
+	Stack() : _top(-1) {}
 
 	void push(char c){
-		buf = buf[c];
+		buf[++_top] = c;
 		}
 
 	char pop(){
-		return _top;
+		int value;
+		value = buf[_top];
+		--_top;
+		return value;
 		}
 
 	char top(){
-		return _top;
+		return buf[_top];
 		}
 	bool isEmpty(){
-		if not (buf[STK_MAX]){
-			return true;
-			}
+		return _top == -1;
 		}
 	bool isFull(){
-		if (buf[STK_MAX]){
-			return true;
-			}
+		return _top == STK_MAX - 1;
 		}
 };
 
-
-void push_all(Stack & stk, string line);
-void pop_all(Stack & stk);
+void push_all(Stack & stk, string line){
+	for (char c : line){
+		stk.push(c);
+		}
+}
+void pop_all(Stack & stk){
+	stk.pop();
+	}
+	
 
