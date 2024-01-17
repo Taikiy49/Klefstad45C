@@ -12,18 +12,30 @@ public:
 	Stack() : _top(-1) {}
 
 	void push(char c){
-		buf[++_top] = c;
+		if (!isFull()){
+			buf[++_top] = c;
+			}
 		}
 
 	char pop(){
-		int value;
-		value = buf[_top];
-		--_top;
-		return value;
+		if (!isEmpty()){
+			int value;
+			value = buf[_top];
+			--_top;
+			return value;
+			}
+		else{
+			return '@';
+			}
 		}
 
 	char top(){
-		return buf[_top];
+		if (!isEmpty()){
+			return buf[_top];
+			}
+		else{
+			return '@';
+			}
 		}
 	bool isEmpty(){
 		return _top == -1;
