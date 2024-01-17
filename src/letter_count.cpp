@@ -1,35 +1,40 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 constexpr int N_CHARS = 26;
 string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-char alphabet_array[N_CHARS];
-int int_index;
-int value;
-string input;
+int alphabet_count[N_CHARS] = {0};
+string s;
 
-void char_to_index(){
-  for (int i = 0; i < N_CHARS; ++i){
-    alphabet_array[i] = alphabet[i];
-  }
+int char_to_index(char chr) {
+    chr = toupper(chr);
+    return chr - 'A';
 }
 
-int find_index(char c){
-  for (int i = 0; i < N_CHARS; ++i){
-    if (c == alphabet_array[i]){
-      int_index = i;
-	  }
-	}
-  return int_index;
-  }
+char index_to_char(int i){
+    return static_cast<char>('A' + i);
+}
 
-int main(){
-  char_to_index();
-  cin >> input;
-  for (char c : input){
-    value = find_index(c);
-   	  cout << value << endl;
-  return 0;
-  }
+void count(string str, int counts[]) {
+    for (char c : str) {
+        int index = char_to_index(c);
+        if (index >= 0 && index < N_CHARS) {
+            counts[index] += 1;
+        }
+    }
+}
+
+void print_counts(int counts[], int len) {
+    for (int i = 0; i < len; ++i){
+        cout << alphabet[i] << " " << counts[i] << endl;
+    }
+}
+
+int main() {
+    cin >> s;
+    count(s, alphabet_count);
+    print_counts(alphabet_count, N_CHARS);
+    return 0;
 }
 
