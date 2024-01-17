@@ -51,7 +51,9 @@ void push_all(Stack & stk, string line){
 		}
 }
 void pop_all(Stack & stk){
-	stk.pop();
+	while (!stk.isEmpty()){
+		stk.pop();
+		}
 	}
 	
 
