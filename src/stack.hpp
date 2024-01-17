@@ -52,8 +52,7 @@ void push_all(Stack & stk, string line){
 }
 void pop_all(Stack & stk){
 	while (!stk.isEmpty()){
-		stk.pop();
+		cout << stk.pop();
 		}
 	}
-	
 
