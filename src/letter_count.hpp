@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 int char_to_index(char ch);
 char index_to_char(int i);
 void count(string s, int counts[]);

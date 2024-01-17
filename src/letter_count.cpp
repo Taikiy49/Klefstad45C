@@ -12,7 +12,7 @@ int char_to_index(char chr) {
     return chr - 'A';
 }
 
-char index_to_char(int i){
+char index_to_char(int i) { 
     return static_cast<char>('A' + i);
 }
 
@@ -20,7 +20,7 @@ void count(string str, int counts[]) {
     for (char c : str) {
         int index = char_to_index(c);
         if (index >= 0 && index < N_CHARS) {
-            counts[index] += 1;
+            counts[index] += index + 65;
         }
     }
 }
@@ -37,4 +37,3 @@ int main() {
     print_counts(alphabet_count, N_CHARS);
     return 0;
 }
-
