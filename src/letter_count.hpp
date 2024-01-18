@@ -1,8 +1,33 @@
 #include <iostream>
 using namespace std;
+#include <cctype>
 
-int char_to_index(char ch);
-char index_to_char(int i);
-void count(string s, int counts[]);
-void print_counts(int counts[], int len);
+constexpr int N_CHARS = 26;
 
+int char_to_index(char ch){
+	if (islower(ch)) {
+		cout << "if run to here, print this" << endl;
+		ch = toupper(ch);
+	}
+	return ch - 'A';
+}
+
+char index_to_char(int i){
+	return 'A' + i;
+}
+
+void count(string s, int counts[]){
+	for (char ch : s) {
+		if (isalpha(ch)){
+			int index = char_to_index(ch);
+			counts[index]++;
+			cout << "Precessing char:" << ch << ", Index: " << index << endl;
+		}
+	}
+}
+
+void print_counts(int counts[], int len){
+	for (int i = 0; i < len; ++i){
+		cout << index_to_char(i) << ' ' << counts[i] << endl;
+	}
+}
