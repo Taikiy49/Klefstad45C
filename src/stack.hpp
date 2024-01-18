@@ -37,8 +37,7 @@ public:
 			return '@';
 			}
 		}
-	bool isEmpty(){
-		return _top == -1;
+_top == -1;
 		}
 	bool isFull(){
 		return _top == STK_MAX - 1;

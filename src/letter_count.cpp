@@ -37,3 +37,4 @@ int main() {
     print_counts(alphabet_count, N_CHARS);
     return 0;
 }
+
