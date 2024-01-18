@@ -6,7 +6,6 @@ constexpr int N_CHARS = 26;
 
 int char_to_index(char ch){
 	if (islower(ch)) {
-		cout << "if run to here, print this" << endl;
 		ch = toupper(ch);
 	}
 	return ch - 'A';
@@ -21,8 +20,7 @@ void count(string s, int counts[]){
 		if (isalpha(ch)){
 			int index = char_to_index(ch);
 			counts[index]++;
-			cout << "Precessing char:" << ch << ", Index: " << index << endl;
-		}
+			}
 	}
 }
 
