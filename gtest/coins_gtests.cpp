@@ -3,7 +3,7 @@
 #include <sstream>
 #include <utility>
 
-#include "coins.hpp"
+#include "coins.h"
 
 using namespace std;
 
