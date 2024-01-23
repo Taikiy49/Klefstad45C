@@ -119,16 +119,14 @@ void coins_menu(std::istream& in, std::ostream& out) {
 
         out << "User Input: ";
         int s;
-        in >> s; // Loads the input into s.
-        out << endl;
+        in >> s; 
+		out << endl;
 
         if (s == 1) {
-            // Deposit change.
-            Coins deposited_money = ask_for_coins(in, out);
+			Coins deposited_money = ask_for_coins(in, out);
             bank.deposit_coins(deposited_money);
         }
         else if (s == 2) {
-            // Extract change.
             Coins extracted_money = ask_for_coins(in, out);
             Coins result = bank.extract_exact_change(extracted_money);
             if (result.total_value_in_cents() == 0 && extracted_money.total_value_in_cents() != 0) {
@@ -136,7 +134,6 @@ void coins_menu(std::istream& in, std::ostream& out) {
             }
         }
         else if (s == 3) {
-            // Print balance.
             print_cents(bank.total_value_in_cents(), out);
             cout << endl;
         }
