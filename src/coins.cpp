@@ -1,4 +1,4 @@
-#include "coins.h"
+#include "coins.hpp"
 #include <iostream>
 #include <iomanip>
 
