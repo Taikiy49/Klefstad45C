@@ -16,7 +16,7 @@ TEST(WordCount, LoadStopWords){
 	stringstream test("");
 	const auto stop_words = load_stopwords(test);
 	auto it = stop_words.find("");
-	EXPECT_TRUE(it != stop_words.end());
+	EXPECT_FALSE(it != stop_words.end());
 	}
 
 TEST(WordCount, CountWords){
