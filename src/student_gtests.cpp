@@ -2,7 +2,7 @@
 #include <string>
 #include <sstream>
 #include <iostream>
-#include "word_count.p"
+#include "word_count.hpp"
 
 using namespace std;
 
