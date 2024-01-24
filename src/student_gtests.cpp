@@ -2,14 +2,14 @@
 #include <string>
 #include <sstream>
 #include <iostream>
-#include "word_count.hpp"
+#include "word_count.p"
 
 using namespace std;
 
 TEST(WordCount, ToLowerCase){
-	string test = "hEll0 taiki";
+	string test = "hEll0 taiki-oW3N";
 	to_lowercase(test);
-	EXPECT_STREQ("hell0 taiki", test.c_str());
+	EXPECT_STREQ("hell0 taiki-ow3n", test.c_str());
 	}
 
 TEST(WordCount, LoadStopWords){
