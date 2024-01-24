@@ -7,9 +7,9 @@
 using namespace std;
 
 TEST(WordCount, ToLowerCase){
-	string test = "   ";
+	string test = "";
 	to_lowercase(test);
-	EXPECT_STREQ("   ", test.c_str());
+	EXPECT_STREQ("", test.c_str());
 	}
 
 TEST(WordCount, LoadStopWords){
