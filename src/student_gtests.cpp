@@ -10,7 +10,7 @@ TEST(WordCount, ToLowerCase){
 	string test = "hEllO tAiki";
 	to_lowercase(test);
 	EXPECT_STREQ("hello taiki", test.c_str());
-	// EXPECT_STREQ("hello taikii", test.c_str());
+	EXPECT_STREQ("hello taikii", test.c_str());
 	}
 	
 TEST(WordCount, LoadStopWords){
