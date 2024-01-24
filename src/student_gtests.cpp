@@ -7,9 +7,9 @@
 using namespace std;
 
 TEST(WordCount, ToLowerCase){
-	string test = "hEllO tAiki";
+	string test = "hEll0 taiki";
 	to_lowercase(test);
-	EXPECT_STREQ("hello taiki", test.c_str());
+	EXPECT_STREQ("hell0 taiki", test.c_str());
 	}
 
 TEST(WordCount, LoadStopWords){
@@ -34,5 +34,6 @@ TEST(WordCount, OutputWordCounts){
 	stringstream output;
 	output_word_counts(word_counts, output);
 	EXPECT_STREQ(output.str().c_str(), "hello 4\ntaiki 1\n");
-	EXPECT_STREQ(output.str().c_str(), "taiki\nhelloo\n");
 	}
+
+
