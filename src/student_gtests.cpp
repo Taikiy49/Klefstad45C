@@ -17,7 +17,7 @@ TEST(WordCount, LoadStopWords){
 	stringstream test("helloworld taiki");
 	const auto stop_words = load_stopwords(test);
 	auto it = stop_words.find("taiki");
-	EXPECT_FALSE(it != stop_words.end());
+	EXPECT_TRUE(it != stop_words.end());
 	// EXPECT_TRUE(it != stop_words.end());
 	}
 
@@ -25,7 +25,7 @@ TEST(WordCount, CountWords){
 	stringstream test("aa aa Aa aA");
 	const auto counts = count_words(test, {"Aa"});	
 	auto it = counts.find("Aa");
-	EXPECT_TRUE(it != counts.end());
+	EXPECT_FALSE(it != counts.end());
 	}
 
 TEST(WordCount, OutputWordCounts){
@@ -36,6 +36,6 @@ TEST(WordCount, OutputWordCounts){
 	stringstream output;
 	output_word_counts(word_counts, output);
 	EXPECT_STREQ(output.str().c_str(), "hello 4\ntaiki 1\n");
-	EXPECT_STREQ(output.str().c_str(), "taiki\nhelloo\n");
+	// EXPECT_STREQ(output.str().c_str(), "taiki\nhelloo\n");
 	}
 
