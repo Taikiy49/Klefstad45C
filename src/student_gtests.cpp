@@ -10,9 +10,8 @@ TEST(WordCount, ToLowerCase){
 	string test = "hEllO tAiki";
 	to_lowercase(test);
 	EXPECT_STREQ("hello taiki", test.c_str());
-	EXPECT_STREQ("hello taikii", test.c_str());
 	}
-	
+
 TEST(WordCount, LoadStopWords){
 	stringstream test("helloworld taiki");
 	const auto stop_words = load_stopwords(test);
@@ -38,4 +37,11 @@ TEST(WordCount, OutputWordCounts){
 	EXPECT_STREQ(output.str().c_str(), "hello 4\ntaiki 1\n");
 	// EXPECT_STREQ(output.str().c_str(), "taiki\nhelloo\n");
 	}
+
+TEST(WordCount, ToLowerCase){
+	string test = "hEllO tAiki";
+	to_lowercase(test);
+	EXPECT_STREQ("hello taikii", test.c_str());
+	}
+
 
