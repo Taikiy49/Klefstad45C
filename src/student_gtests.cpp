@@ -17,7 +17,6 @@ TEST(WordCount, LoadStopWords){
 	const auto stop_words = load_stopwords(test);
 	auto it = stop_words.find("taiki");
 	EXPECT_TRUE(it != stop_words.end());
-	// EXPECT_TRUE(it != stop_words.end());
 	}
 
 TEST(WordCount, CountWords){
@@ -35,5 +34,5 @@ TEST(WordCount, OutputWordCounts){
 	stringstream output;
 	output_word_counts(word_counts, output);
 	EXPECT_STREQ(output.str().c_str(), "hello 4\ntaiki 1\n");
-	// EXPECT_STREQ(output.str().c_str(), "taiki\nhelloo\n");
+	EXPECT_STREQ(output.str().c_str(), "taiki\nhelloo\n");
 	}
