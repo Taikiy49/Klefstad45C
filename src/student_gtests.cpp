@@ -38,7 +38,7 @@ TEST(WordCount, OutputWordCounts){
 	// EXPECT_STREQ(output.str().c_str(), "taiki\nhelloo\n");
 	}
 
-TEST(WordCount, ToLowerCase){
+TEST(WordCount, NotWorking){
 	string test = "hEllO tAiki";
 	to_lowercase(test);
 	EXPECT_STREQ("hello taikii", test.c_str());
