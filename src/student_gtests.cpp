@@ -7,16 +7,21 @@
 using namespace std;
 
 TEST(WordCount, ToLowerCase){
-	string test = "heLLo";
+	string test = "heLL0 my_name IS taiki";
 	to_lowercase(test);
-	EXPECT_STREQ("hello", test.c_str());
+	EXPECT_STREQ("hell0 my_name is taiki", test.c_str());
 	}
 
 TEST(WordCount, LoadStopWords){
-	stringstream test("");
+	stringstream test("heLL0 w0rld ");
 	const auto stop_words = load_stopwords(test);
-	auto it = stop_words.find("");
-	EXPECT_FALSE(it != stop_words.end());
+	
+	auto it = stop_words.find("hell0");
+
+
+	EXPECT_TRUE(it != stop_words.end());
+
+
 	}
 
 TEST(WordCount, CountWords){
