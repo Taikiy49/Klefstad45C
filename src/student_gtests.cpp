@@ -35,7 +35,7 @@ TEST(WordCount, OutputWordCounts){
 
 	stringstream output;
 	output_word_counts(word_counts, output);
-	EXPECT_STREQ(output.str().c_str(), "hell0 4\n");
+	EXPECT_STREQ(output.str().c_str(), "helL0 4\n");
 	}
 
 
