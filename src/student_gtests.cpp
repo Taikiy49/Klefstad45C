@@ -17,18 +17,16 @@ TEST(WordCount, LoadStopWords){
 	const auto stop_words = load_stopwords(test);
 	
 	auto it = stop_words.find("hell0");
-
-
 	EXPECT_TRUE(it != stop_words.end());
 
 
 	}
 
 TEST(WordCount, CountWords){
-	stringstream test("aa aa Aa aA");
-	const auto counts = count_words(test, {"Aa"});	
-	auto it = counts.find("Aa");
-	EXPECT_FALSE(it != counts.end());
+	stringstream test("aa aa Aa heLL0");
+	const auto counts = count_words(test, {"heLL0"});	
+	auto it = counts.find("hell0");
+	EXPECT_TRUE(it != counts.end());
 	}
 
 TEST(WordCount, OutputWordCounts){
