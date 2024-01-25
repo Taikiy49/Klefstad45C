@@ -16,7 +16,7 @@ TEST(WordCount, LoadStopWords){
 	stringstream test("helL0 wor1D");
 	const auto stop_words = load_stopwords(test);
 	
-	auto it = stop_words.find("helL0");
+	auto it = stop_words.find("hell0");
 	EXPECT_TRUE(it != stop_words.end());
 
 	auto ot = stop_words.find("wor1d");
