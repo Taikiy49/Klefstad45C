@@ -25,15 +25,18 @@ TEST(WordCount, LoadStopWords){
 	}
 
 TEST(WordCount, CountWords){
-	stringstream test("aa aa Aa heLL0_42B b0O");
-	const auto counts = count_words(test, {"heLL0_42B"});	
-	auto it = counts.find("hell0_42b");
-	EXPECT_TRUE(it != counts.end());
+	stringstream test("aa aa bc foo bar");
+	const auto counts = count_words(test, {});
 
-	auto ot = counts.find("b0o");
-	EXPECT_TRUE(ot != counts.end());
+	EXPECT_EQ(counts.at("aa"), 2);
+    EXPECT_EQ(counts.at("bc"), 1);
+ 	EXPECT_EQ(counts.at("foo"), 1);
+	EXPECT_EQ(counts.at("bar"), 1);
+	EXPECT_FALSE(counts.contains("baz"));
+}
 
-	}
+
+
 
 TEST(WordCount, OutputWordCounts){
 	map<string, int> word_counts;
