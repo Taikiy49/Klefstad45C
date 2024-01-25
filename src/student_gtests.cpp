@@ -32,7 +32,9 @@ TEST(WordCount, CountWords){
     EXPECT_EQ(counts.at("bc"), 1);
  	EXPECT_EQ(counts.at("foo"), 1);
 	EXPECT_EQ(counts.at("bar"), 1);
-	EXPECT_FALSE(counts.contains("baz"));
+
+	auto it = counts.find("baz");
+	EXPECT_FALSE(it != counts.end());
 }
 
 
