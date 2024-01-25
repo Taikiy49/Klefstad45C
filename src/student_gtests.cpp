@@ -22,7 +22,7 @@ TEST(WordCount, LoadStopWords){
 	auto ot = stop_words.find("wor1d");
 	EXPECT_TRUE(ot != stop_words.end());
 
-	}
+	}	
 
 TEST(WordCount, CountWords){
 	stringstream test("aa aa bc foo bar");
@@ -35,7 +35,7 @@ TEST(WordCount, CountWords){
 
 	auto it = counts.find("baz");
 	EXPECT_FALSE(it != counts.end());
-}
+	}
 
 
 
@@ -47,6 +47,8 @@ TEST(WordCount, OutputWordCounts){
 	output_word_counts(word_counts, output);
 	EXPECT_STREQ(output.str().c_str(), "helL0 4\n");
 	}
+
+
 
 
 
