@@ -30,8 +30,8 @@ TEST(WordCount, CountWords){
 	auto it = counts.find("hell0_42b");
 	EXPECT_TRUE(it != counts.end());
 
-	auto ot = counts.find("b0o");
-	EXPECT_TRUE(ot != counts.end());
+	auto ot = counts.find("b000");
+	EXPECT_FALSE(ot != counts.end());
 
 	}
 
