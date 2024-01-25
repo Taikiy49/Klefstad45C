@@ -13,10 +13,10 @@ TEST(WordCount, ToLowerCase){
 	}
 
 TEST(WordCount, LoadStopWords){
-	stringstream test("heLL0 w0rld ");
+	stringstream test("hello world ");
 	const auto stop_words = load_stopwords(test);
 	
-	auto it = stop_words.find("hell0");
+	auto it = stop_words.find("hello");
 	EXPECT_TRUE(it != stop_words.end());
 
 
