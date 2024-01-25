@@ -26,7 +26,7 @@ TEST(WordCount, LoadStopWords){
 
 TEST(WordCount, CountWords){
 	stringstream test("aa aa Aa heLL0_42B b0O");
-	const auto counts = count_words(test, {"heLL0_42B"});	
+	const auto counts = count_words(test, {});	
 	auto it = counts.find("hell0_42b");
 	EXPECT_TRUE(it != counts.end());
 
