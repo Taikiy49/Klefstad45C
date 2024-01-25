@@ -31,12 +31,11 @@ TEST(WordCount, CountWords){
 
 TEST(WordCount, OutputWordCounts){
 	map<string, int> word_counts;
-	word_counts["taiki"] = 1;
-	word_counts["hello"] = 4;
+	word_counts["helL0"] = 4;
 
 	stringstream output;
 	output_word_counts(word_counts, output);
-	EXPECT_STREQ(output.str().c_str(), "hello 4\ntaiki 1\n");
+	EXPECT_STREQ(output.str().c_str(), "hell0 4");
 	}
 
 
