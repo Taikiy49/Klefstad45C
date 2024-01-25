@@ -37,7 +37,6 @@ TEST(WordCount, CountWords){
 
 
 
-
 TEST(WordCount, OutputWordCounts){
 	map<string, int> word_counts;
 	word_counts["helL0"] = 4;
