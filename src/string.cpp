@@ -22,7 +22,7 @@ char* String::strcpy(char *dest, const char *src) {
 
 char* String::strncpy(char *dest, const char *src, int n) {
     int value;
-    for (value=0; i<value && src[value] != '\0'; ++value) {
+    for (value=0; value<n && src[value] != '\0'; ++value) {
         dest[value] = src[value];
     }
     dest[value] = '\0';
