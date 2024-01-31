@@ -38,21 +38,40 @@ TEST(StringFunction, strncat) {
 }
 
 TEST(StringFunction, strcmp) {
-    EXPECT_TRUE(true);
+	char left[6] = "Hello";
+	char right[6] = "World";
+	EXPECT_NE(strcmp(left, right), 0);
 }
 
 TEST(StringFunction, strncmp) {
-    EXPECT_TRUE(true);
+    char left[6] = "Hello";
+	char right[6] = "World";
+	EXPECT_NE(strncmp(left, right, 5), 0);
 }
 
 TEST(StringFunction, reverse_cpy) {
-    EXPECT_TRUE(true);
+	EXPECT_TRUE(true);
 }
 
 TEST(StringFunction, strchr) {
-    EXPECT_TRUE(true);
+ 	const char* str = "Hello World!";
+	char ch = 'o';
+
+	const char* result = strchr(str, ch);
+
+	EXPECT_TRUE(result != nullptr);
+	EXPECT_EQ(*result, ch);
+
 }
 
 TEST(StringFunction, strstr) {
-    EXPECT_TRUE(true);
+	const char* str = "Hello World!";
+	const char* substring = "World";
+
+	const char* result = strstr(str, substring);
+
+	EXPECT_TRUE(result != nullptr);
+	EXPECT_EQ(result - str, 6);
+
+  	
 }
