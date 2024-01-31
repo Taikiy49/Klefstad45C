@@ -22,15 +22,23 @@ TEST(StringFunction, strcpy) {
 TEST(StringFunction, strncpy) {
 	char initial[15] = "First String";
 	const char* source = "Hello World!";
-	strncpy(initial, source, 5);
-	EXPECT_STREQ(initial, "Hello String");
+	strncpy(initial, source, 15);
+	EXPECT_STREQ(initial, "Hello World!");
+
+	
+	char value[14] = "First String";
+	const char* source2 = " ";
+	strncpy(value, source2, 2);
+	EXPECT_STREQ(value, " ");
+	
+
 	
 }
 
 TEST(StringFunction, strcat) {
     char dest[20] = "This and ";
-	char src[5] = "that"; // remember because of NULL value
-	EXPECT_STREQ(strcat(dest, src), "This and that");
+	char src[5] = " "; // remember because of NULL value
+	EXPECT_STREQ(strcat(dest, src), "This and  ");
 }
 
 TEST(StringFunction, strncat) {
