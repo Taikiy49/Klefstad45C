@@ -20,9 +20,11 @@ TEST(StringFunction, strcpy) {
 }
 
 TEST(StringFunction, strncpy) {
-	char result[10];
-	EXPECT_EQ(strncpy(result, "foo", 5), result);
-	EXPECT_STREQ(result, "foo");
+	char initial[15] = "First String";
+	const char* source = "Hello World!";
+	strncpy(initial, source, 5);
+	EXPECT_STREQ(initial, "Hello String");
+	
 }
 
 TEST(StringFunction, strcat) {
