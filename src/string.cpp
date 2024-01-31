@@ -6,96 +6,96 @@ using namespace std;
 
 
 int String::strlen(const char *s) {
-    int i;
-    for (i=0; s[i] != '\0'; ++i) {}
-    return i;
+    int value;
+    for (value=0; s[value] != '\0'; ++value) {}
+    return value;
 }
 
 char* String::strcpy(char *dest, const char *src) {
-    int i;
-    for (i=0; src[i] != '\0'; ++i) {
-        dest[i] = src[i];
+    int value;
+    for (value=0; src[value] != '\0'; ++value) {
+        dest[value] = src[value];
     }
-    dest[i] = '\0';
+    dest[value] = '\0';
     return dest;
 }
 
 char* String::strncpy(char *dest, const char *src, int n) {
-    int i;
-    for (i=0; i<n && src[i] != '\0'; ++i) {
-        dest[i] = src[i];
+    int value;
+    for (value=0; i<value && src[value] != '\0'; ++value) {
+        dest[value] = src[value];
     }
-    dest[i] = '\0';
+    dest[value] = '\0';
     return dest;
 }
 
 char* String::strcat(char *dest, const char *src) {
-    int i = String::strlen(dest);
-    for (int j=0; src[j] != '\0'; ++j) {
-        dest[i] = src[j];
-        ++i;
+    int value = String::strlen(dest);
+    for (int value2=0; src[value2] != '\0'; ++value2) {
+        dest[value] = src[value2];
+        ++value;
     }
-    dest[i] = '\0';
+    dest[value] = '\0';
     return dest;
 }
 
 char* String::strncat(char *dest, const char *src, int n) {
-    int i = String::strlen(dest);
-    for (int j=0; j<n && src[j] != '\0'; ++j) {
-        dest[i] = src[j];
-        ++i;
+    int value = String::strlen(dest);
+    for (int value2=0; value2<n && src[value2] != '\0'; ++value2) {
+        dest[value] = src[value2];
+        ++value;
     }
-    dest[i] = '\0';
+    dest[value] = '\0';
     return dest;
 }
 
 int String::strcmp(const char *left, const char *right) {
-    int i=0;
-    for (; left[i] != '\0' && right[i] != '\0'; ++i) {
-        if (left[i] != right[i])
-            return (left[i] - right[i]);
+    int value=0;
+    for (; left[value] != '\0' && right[value] != '\0'; ++value) {
+        if (left[value] != right[value])
+            return (left[value] - right[value]);
     }
-    if (left[i] == right[i])
+    if (left[value] == right[value])
         return 0;
     else
-        return (left[i] - right[i]);
+        return (left[value] - right[value]);
 }
 
 int String::strncmp(const char *left, const char *right, int n) {
-    int i=0;
-    for (; i<n && left[i] != '\0'; ++i) {
-        if (left[i] != right[i])
-            return (left[i] - right[i]);
+    int value=0;
+    for (; value<n && left[value] != '\0'; ++value) {
+        if (left[value] != right[value])
+            return (left[value] - right[value]);
     }
-    if (i == n)
+    if (value == n)
         return 0;
-    else if (right[i] == '\0')
+    else if (right[value] == '\0')
         return 0;
     else
-        return (left[i]-right[i]);
+        return (left[value]-right[value]);
 }
 
 void String::reverse_cpy(char* dest, const char* src) {
-    int i = String::strlen(src)-1;
-    int j;
-    for (j=0; i>=0; --i) {
-        dest[j] = src[i];
-        ++j;
+    int value = String::strlen(src)-1;
+    int value2;
+    for (value2=0; value>=0; --value) {
+        dest[value2] = src[value];
+        ++value2;
     }
-    dest[j] = '\0';
+    dest[value2] = '\0';
 }
 
 const char* String::strchr(const char* str, char c) {
     const char* ptr = nullptr;
-    int i;
-    for (i=0; str[i] != '\0'; ++i) {
-        if (str[i] == c) {
-            ptr = &str[i];
+    int value;
+    for (value=0; str[value] != '\0'; ++value) {
+        if (str[value] == c) {
+            ptr = &str[value];
             break;
         }
     }
     if (c == '\0')
-        ptr = &str[i];
+        ptr = &str[value];
     return ptr;
 }
 
@@ -105,15 +105,16 @@ const char* String::strstr(const char* haystack, const char* needle) {
     if (needleLength == 0) {
         return haystack;
     }
+	int value;
     int cycle = String::strlen(haystack)-needleLength+1;
-    for (int i=0; i<cycle; ++i) {
+    for (int value=0; value<cycle; ++value) {
         int step = 0;
         for (; step<needleLength; ++step) {
-            if (haystack[i+step] != needle[step])
+            if (haystack[value+step] != needle[step])
                 break; 
 				}
         if (step == needleLength) { 
-		ptr = &haystack[i];
+		ptr = &haystack[value];
             break;
         }
     }
@@ -121,8 +122,8 @@ const char* String::strstr(const char* haystack, const char* needle) {
 }
 
 void String::print(std::ostream &out) const {
-    for (int i=0; buf[i] != '\0'; ++i)
-        out << buf[i];
+    for (int value=0; buf[value] != '\0'; ++value)
+        out << buf[value];
 }
 
 std::ostream &operator<<(std::ostream &out, const String &s) {
