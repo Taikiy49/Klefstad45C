@@ -28,15 +28,13 @@ TEST(StringFunction, strncpy) {
 TEST(StringFunction, strcat) {
     char dest[20] = "This and ";
 	char src[5] = "that"; // remember because of NULL value
-	EXPECT_EQ(strcat(dest, src), "This and that");
-
-
+	EXPECT_STREQ(strcat(dest, src), "This and that");
 }
 
 TEST(StringFunction, strncat) {
-	char result[10];
-	EXPECT_EQ(strncat(result, "foo", 5), result);
-	EXPECT_STREQ(result, "foo");
+	char dest[20] = "This and ";
+	char src[5] = "that";
+	EXPECT_STREQ(strncat(dest, src, 5), "This and that");
 }
 
 TEST(StringFunction, strcmp) {
