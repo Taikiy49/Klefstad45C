@@ -20,19 +20,23 @@ TEST(StringFunction, strcpy) {
 }
 
 TEST(StringFunction, strncpy) {
-	
-
-
-
-    EXPECT_TRUE(true);
+	char result[10];
+	EXPECT_EQ(strncpy(result, "foo", 5), result);
+	EXPECT_STREQ(result, "foo");
 }
 
 TEST(StringFunction, strcat) {
-    EXPECT_TRUE(true);
+    char dest[20] = "This and ";
+	char src[5] = "that"; // remember because of NULL value
+	EXPECT_EQ(strcat(dest, src), "This and that");
+
+
 }
 
 TEST(StringFunction, strncat) {
-    EXPECT_TRUE(true);
+	char result[10];
+	EXPECT_EQ(strncat(result, "foo", 5), result);
+	EXPECT_STREQ(result, "foo");
 }
 
 TEST(StringFunction, strcmp) {
