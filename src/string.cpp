@@ -38,19 +38,12 @@ char* String::strncpy(char* dest, const char* src, int n) {
 
 
 char* String::strdup(const char* src) {
-    int l = String::strlen(src)+1; // Finds the allocation length needed.
-    char* heapstr{new char[l]}; // Creates new via heap.
-    String::strcpy(heapstr, src); // Copies the src over.
+    int l = String::strlen(src)+1;
+	char* heapstr{new char[l]};     
+	String::strcpy(heapstr, src);
     return heapstr;
 }
 
-
-char* String::reverse_strdup(const char* src) {
-    int l = String::strlen(src)+1; // Allocation length.
-    char* heapstr{new char[l]}; // Creates.
-    String::reverse_cpy(heapstr, src); // Reverse copies.
-    return heapstr;
-}
 
 
 char* String::strcat(char* dest, const char* src) {
@@ -73,16 +66,6 @@ char* String::strncat(char* dest, const char* src, int n) {
     dest[l] = '\0';
     return dest;
 }
-
-
-char* String::double_strdup(const char* str1, const char* str2) {
-    int l = String::strlen(str1)+String::strlen(str2)+1;
-    char* heapstr{new char[l]{'\0'}};
-    String::strcat(heapstr, str1);
-    String::strcat(heapstr, str2);
-    return heapstr;
-}
-
 
 int String::strcmp(const char* left, const char* right) {
     int i;
@@ -123,15 +106,14 @@ const char* String::strstr(const char* haystack, const char* needle) {
     int needleLength = String::strlen(needle);
 
     if (needleLength == 0)
-        return haystack; // Returns the haystack pointer if needle is "".
-
+        return haystack;
     int cycle = String::strlen(haystack)-needleLength+1;
     for (int i=0; i<cycle; ++i) {
         int step = 0;
         for (; step<needleLength; ++step)
             if (haystack[i+step] != needle[step])
-                break; // Break out of the loop at a non-equal comparison.
-        if (step == needleLength) { // If that iteration was successful, i.e. str exist.
+                break;
+        if (step == needleLength) { 
             ptr = &haystack[i];
             break;
         }
@@ -144,7 +126,7 @@ String::String(int length) {
     buf = new char[length];
     buf[length-1] = '\0';
 }
-Z
+
 
 String::String(const char* s): buf{strdup(s)} {
 }
@@ -162,7 +144,7 @@ String::~String() {
 int String::size() const {
     return String::strlen(buf);
 }
-Z
+
 
 void String::print(std::ostream& out) const {
     for (int i=0; buf[i] != '\0'; ++i)
