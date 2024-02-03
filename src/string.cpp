@@ -152,8 +152,8 @@ void String::print(std::ostream& out) const {
 }
 
 
-bool String::operator==(const String& s) const {
-    return (String::strcmp(buf, s.buf) == 0);
+//bool String::operator==(const String& s) const {
+   // return (String::strcmp(buf, s.buf) == 0);
 }
 
 bool String::operator!=(const String& s) const {
