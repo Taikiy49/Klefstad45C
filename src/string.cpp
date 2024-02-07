@@ -17,7 +17,9 @@ char *String::strcpy(char *dest, const char *src)
 {
     int i;
     for (i = 0; src[i] != '\0'; ++i)
+    {
         dest[i] = src[i];
+    }
     dest[i] = '\0';
     return dest;
 }
@@ -26,32 +28,36 @@ void String::reverse_cpy(char *dest, const char *src)
 {
     int end = String::strlen(src) - 1;
     for (int i = 0; i <= end; ++i)
+    {
         dest[i] = src[end - i];
-    dest[end + 1] = '\0';
+    }
+    dest[end + i] = '\0';
 }
 
 char *String::strncpy(char *dest, const char *src, int n)
 {
     int i;
     for (i = 0; src[i] != '\0' && i < n; ++i)
+    {
         dest[i] = src[i];
+    }
     dest[i] = '\0';
     return dest;
 }
 
 char *String::strdup(const char *src)
 {
-    int l = String::strlen(src) + 1; // Finds the allocation length needed.
-    char *heapstr{new char[l]};      // Creates new via heap.
-    String::strcpy(heapstr, src);    // Copies the src over.
+    int l = String::strlen(src) + 1;
+    char *heapstr{new char[l]};
+    String::strcpy(heapstr, src);
     return heapstr;
 }
 
 char *String::reverse_strdup(const char *src)
 {
-    int l = String::strlen(src) + 1;   // Allocation length.
-    char *heapstr{new char[l]};        // Creates.
-    String::reverse_cpy(heapstr, src); // Reverse copies.
+    int l = String::strlen(src) + 1;
+    char *heapstr{new char[l]};
+    String::reverse_cpy(heapstr, src);
     return heapstr;
 }
 

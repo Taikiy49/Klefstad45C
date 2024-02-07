@@ -6,31 +6,22 @@
 class String
 {
 public:
-    // constructs this string from a C string, defaults to empty string
     explicit String(const char *s = "");
 
-    // construct this string as a copy of string s
     String(const String &s);
 
-    // construct this string by moving from string s
     String(String &&s);
 
-    // swap buf between this string and s using std::swap, explained later
     void swap(String &s);
 
-    // assignment operator from one string, s, to this string
     String &operator=(const String &s);
 
-    // assign to this string by moving from string s
     String &operator=(String &&s);
 
-    // allow indexing this string with notation s[i]
     char &operator[](int index);
 
-    // allow const indexing
     const char &operator[](int index) const;
 
-    // returns the logical length of this string (# of chars up to '\0')
     int size() const;
     String reverse() const;
     int indexOf(char c) const;
