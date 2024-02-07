@@ -31,7 +31,7 @@ void String::reverse_cpy(char *dest, const char *src)
     {
         dest[i] = src[end - i];
     }
-    dest[end + i] = '\0';
+    dest[end + 1] = '\0';
 }
 
 char *String::strncpy(char *dest, const char *src, int n)
