@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include <string.h>
+#include <string.hpp>
 
 #include <algorithm>
 
@@ -154,3 +154,8 @@ TEST(StringFunction, strstr)
     const char *p = String::strstr(haystack, "");
     EXPECT_EQ(haystack, p);
 }
+
+
+
+
+
