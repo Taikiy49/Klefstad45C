@@ -2,6 +2,8 @@
 #include "string.hpp"
 #include <iostream>
 
+// buf is private variable in the hpp file.
+
 using namespace std;
 
 int String::strlen(const char *s)
@@ -135,7 +137,7 @@ const char *String::strstr(const char *haystack, const char *needle)
     int needleLength = String::strlen(needle);
 
     if (needleLength == 0)
-        return haystack; // Returns the haystack pointer if needle is "".
+        return haystack;
 
     int cycle = String::strlen(haystack) - needleLength + 1;
     for (int i = 0; i < cycle; ++i)
@@ -143,9 +145,9 @@ const char *String::strstr(const char *haystack, const char *needle)
         int step = 0;
         for (; step < needleLength; ++step)
             if (haystack[i + step] != needle[step])
-                break; // Break out of the loop at a non-equal comparison.
+                break;
         if (step == needleLength)
-        { // If that iteration was successful, i.e. str exist.
+        {
             ptr = &haystack[i];
             break;
         }
@@ -180,7 +182,9 @@ int String::size() const
 void String::print(std::ostream &out) const
 {
     for (int i = 0; buf[i] != '\0'; ++i)
+    {
         out << buf[i];
+    }
 }
 
 bool String::operator==(const String &s) const
