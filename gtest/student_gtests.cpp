@@ -128,10 +128,10 @@ TEST(StringFunction, reverse_cpy)
     char b[20];
     String::reverse_cpy(b, a);
     EXPECT_STREQ(b, "ATIHSAMAYIKIAT");
-    char c[5] = "crazy";
+    char c[5] = "craz";
     char d[6] = "thing";
     String::reverse_cpy(d, c);
-    EXPECT_STREQ(d, "yzarc");
+    EXPECT_STREQ(d, "zarc");
 }
 
 TEST(StringFunction, strchr)
