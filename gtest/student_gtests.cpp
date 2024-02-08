@@ -56,7 +56,7 @@ TEST(StringFunction, strcat)
     char result[80] = "Taiki";
     EXPECT_EQ(String::strcat(result, ""), result);
     EXPECT_STREQ(String::strcat(result, "foo"), "Taikifoo");
-    EXPECT_STREQ(String::strcat(result, "nooo"), "Taikifoonoo");
+    EXPECT_STREQ(String::strcat(result, "noo"), "Taikifoonoo");
     EXPECT_STREQ(String::strcat(result, ""), "Taikifoonoo");
 }
 
