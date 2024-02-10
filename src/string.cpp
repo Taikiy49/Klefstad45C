@@ -2,6 +2,7 @@
 #include <iostream>
 
 using namepsace std;
+using list::Node;
 
 // constructor from c-style string
 // const char *cstring = "Goodbye";
@@ -101,13 +102,44 @@ int String::indexOf(char c) const{
     return k;
 }
 
+// index of a copy
 int String::indexOf(const String &s) const{
-    if (s.head == nullptr)
+    if (s.head == nullptr) // checks if the head of the copy object is null.
         return 0;
-    Node *f = list::find_list(head, s.head);
+    Node *f = list::find_list(head, s.head); // 
     int l = list::index(head, f);
     return k;
 }
+
+// copy operator
+bool String::operator==(const String &s) const{
+    return (list::compare(head, s.head)==0);
+}
+
+// spaceship!
+strong_ordering String::operator<==>(const String &s) const{
+    return (list::compare(head, s.head) <=> 0);
+}
+
+String String::reverse() const{
+    Node *r = list::reverse(head); // reverses the head with reverse method.
+    String s(""); // creates a new empty string object
+    s.head = r; // sets the head of the new string object to the reverse of head.
+    return s; // returns a reverse of head without actually changing what we currently have for head.
+}
+
+String String::operator+(const String &s) const{ 
+    String added("");
+    added.head = list::append(head, s.head); // appends head to s.head and gives it to the newly create added.head
+    return added;
+}
+
+String &String::operator+=(const String &s){
+    Node *l = list::last(head); 
+    l->next = list::copy(s.head);
+    return *this;
+}
+
 
 
 
