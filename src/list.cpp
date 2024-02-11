@@ -83,7 +83,7 @@ Node *list::reverse(Node *head)
     Node *r = nullptr; // this is the one that contains the reverse.
     Node *n = head;
     for (; n != nullptr; n = n->next)
-        r = new Node(n->data, r); // this is how to add the data in reverse?
+        r = new Node{n->data, r}; // this is how to add the data in reverse?
     return r;
 }
 
