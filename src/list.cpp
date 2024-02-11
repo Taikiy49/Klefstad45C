@@ -41,10 +41,10 @@ Node *list::copy(Node *head)
     if (!head)
         return nullptr; // if no value for head, return NULL
     Node *c = head->next;
-    Node *n = new Node(head->data, nullptr); // double check on what the Node constructor does!
+    Node *n = new Node{head->data, nullptr}; // double check on what the Node constructor does!
     Node *newNode = n;                       // newNode points to n which is a new Node object
     for (; c != nullptr; n = n->next, c = c->next)
-        n->next = new Node(c->data, nullptr);
+        n->next = new Node{c->data, nullptr};
     return newNode; // newNode is the copy of the orginal node...
 }
 
