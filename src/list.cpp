@@ -38,12 +38,66 @@ int list::length(Node *head)
 
 Node *list::copy(Node *head)
 {
-    if (!head)
-        return nullptr; // if no value for head, return NULL
+    if (!head) return nullptr; // if no value for head, return NULL
     Node *c = head->next;
     Node *n = new Node(head->data, nullptr); // double check on what the Node constructor does!
-    Node *newNode = n;
+    Node *newNode = n; // newNode points to n which is a new Node object
     for (; c != nullptr; n = n->next, c = c->next)
         n->next = new Node(c->data, nullptr);
-    return newNode;
+    return newNode; // newNode is the copy of the orginal node...
 }
+
+int list::compare(Node *lhs, Node *rhs){
+    Node *l = lhs;
+    Node *r = rhs;
+    for (int i=0; l != nullptr && r != nullptr; l = l->next, r = r->next, ++i){
+        if (l->data != r->data) return (l->data - r->data);
+    if (l==nullptr) return (r==nullptr) ? 0 : (-(r->data));
+    return (l->data);
+    }
+}
+
+int list::compare(Node *lhs, Node *rhs, int n){
+    Node *l = lhs; 
+    Node *r = rhs;
+    for (int i = 0; l != nullptr && r != nullptr && i<n; l = l->next, r = r->next, ++i){
+        if (l->data != r->data) return (l->data - r->data);
+    if (i==n) return 0;
+    if (l==nullptr) return (r==nullptr) ? 0 : (-r(r->data)); // wtf is this...
+    return (l->data);
+    }
+}
+
+Node *list::reverse(Node *head){
+    Node *r = nullptr; // this is the one that contains the reverse.
+    Node *n = head;
+    for (; n != nullptr; n = n->next)
+        r = new Node(n->data, r); // this is how to add the data in reverse?
+}
+
+Node *list::append(Node *lhs, Node *rhs){
+    if (lhs==nullptr) return list::copy(rhs); // if the left side is empty, you take the right side
+    if (rhs==nullptr) return list::copy(lhs); // if the right side is empty, you take the left side
+
+    Node *l = list::copy(lhs); // l takes the copy of lhs
+    Node *r = list::copy(rhs); // r takes the copy of rhs
+    Node *n = l; // a new pointer n points to l
+
+    for (; l->next != nullptr; l=l->next){} // this gets me to the last index before the nullptr
+    l->next = r; // this adds the right hand side to the left hand side
+    return n; // finally returns n that has everything in the left hand side appended with right hand side
+}
+
+int list::index(Node *head, Node *node){
+    if (head==nullptr) return -1; // if the head is NULL, you can't index is
+    Node *b = head;
+    for (int i=0; b!=nullptr; ++i, b = b->next)
+        if (b==node) return i; // compares index in b to a singular node
+    return -1; // if node does not exist
+}
+
+// Node *list::find_char(Node *haystack, Node *needle){
+//     if (needle==nullptr) return haystack;
+//     if (haystack==nullptr) return nullptr;
+
+// }
