@@ -96,8 +96,34 @@ int list::index(Node *head, Node *node){
     return -1; // if node does not exist
 }
 
-// Node *list::find_char(Node *haystack, Node *needle){
-//     if (needle==nullptr) return haystack;
-//     if (haystack==nullptr) return nullptr;
+Node *list::find_char(Node *head, char c){
+    if (head==nullptr) return nullptr;
+    return (head->data==c) ? head : find_char(head->next, c); // recursion to find the character!
+}
 
-// }
+
+// i dont like haystack and needle ;-;
+Node *list::find_list(Node *haystack, Node *needle){
+    if (needle==nullptr) return haystack;
+    if (haystack==nullptr) return nullptr;
+
+    for (Node *h = haystack; h != nullptr; h = h->next){
+        Node *s = h;
+        Node *n = needle;
+        for (; n != nullptr; s = s->next, n = n->next)
+            if (s==nullptr || s->data != n->data) break;
+        if (n==nullptr) return h;
+        if (s==nullptr) break;
+    }
+    return nullptr;
+}
+
+Node *list::nth(Node *head, int n){
+    if (head==nullptr) return nullptr;
+    return (n==0) ? head : list::nth(head->next, --n); // more recursion to find the nth node!
+}
+
+Node list::last(Node *head){
+    if (head==nullptr) return nullptr;
+    return (head->next==nullptr) ? head : list::last(head->next); // recursion to find the last node!
+}  
