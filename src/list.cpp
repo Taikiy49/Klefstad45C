@@ -53,29 +53,27 @@ int list::compare(Node *lhs, Node *rhs)
     Node *l = lhs;
     Node *r = rhs;
     for (int i = 0; l != nullptr && r != nullptr; l = l->next, r = r->next, ++i)
-    {
         if (l->data != r->data)
             return (l->data - r->data);
-        if (l == nullptr)
-            return (r == nullptr) ? 0 : (-(r->data));
-        return (l->data);
-    }
+    if (l == nullptr)
+        return (r == nullptr) ? 0 : (-(r->data));
+    return (l->data);
 }
 
 int list::compare(Node *lhs, Node *rhs, int n)
 {
     Node *l = lhs;
     Node *r = rhs;
-    for (int i = 0; l != nullptr && r != nullptr && i < n; l = l->next, r = r->next, ++i)
-    {
+    int i;
+    for (i = 0; l != nullptr && r != nullptr && i < n; l = l->next, r = r->next, ++i)
         if (l->data != r->data)
             return (l->data - r->data);
-        if (i == n)
-            return 0;
-        if (l == nullptr)
-            return (r == nullptr) ? 0 : (-(r->data)); // wtf is this...
-        return (l->data);
-    }
+    if (i == n)
+        return 0;
+    if (l == nullptr)
+        return (r == nullptr) ? 0 : (-(r->data)); // wtf is this...
+    return (l->data);
+
 }
 
 Node *list::reverse(Node *head)
