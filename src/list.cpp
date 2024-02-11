@@ -16,8 +16,8 @@ void list::free(Node *head)
     while (current != nullptr)
     {                               // while that ptr is not null...
         Node *next = current->next; // a new ptr will be equal to the next index in current.
-        delete current;              // then we delete current so we can set current to a new value.
-            current = next;         // current equals next and checks through the while loop once again.
+        delete current;             // then we delete current so we can set current to a new value.
+        current = next;             // current equals next and checks through the while loop once again.
     }
     head = nullptr;
 }
@@ -84,6 +84,7 @@ Node *list::reverse(Node *head)
     Node *n = head;
     for (; n != nullptr; n = n->next)
         r = new Node(n->data, r); // this is how to add the data in reverse?
+    return r;
 }
 
 Node *list::append(Node *lhs, Node *rhs)
