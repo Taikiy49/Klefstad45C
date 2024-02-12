@@ -7,18 +7,20 @@ using list::Node;
 // very weird syntaxing...
 Node *list::from_string(const char *s)
 {
+    // this will keep running until the from_string method hits the nullptr.
     return (*s == '\0') ? nullptr : new Node{*s, from_string(&s[1])};
 }
 
-void list::free(Node *head){
-    for (Node *current = head; current != nullptr;){
+void list::free(Node *head)
+{
+    for (Node *current = head; current != nullptr;)
+    {
         Node *next = current->next; // creates a new node that takes the next index. we need this as a placeholder.
-        delete current; // now we delete current.
-        current = next; // and current becomes the next index. this will continue until current hits a nullptr!
+        delete current;             // now we delete current.
+        current = next;             // and current becomes the next index. this will continue until current hits a nullptr!
     }
     head = nullptr;
 }
-
 
 void list::print(ostream &out, Node *head)
 {
@@ -34,29 +36,28 @@ int list::length(Node *head)
     return i;
 }
 
-
 Node *list::copy(Node *head)
 {
-    if (!head)
+    if (head == nullptr)
         return nullptr; // if no value for head, return NULL
     Node *c = head->next;
-    Node *n = new Node{head->data, nullptr}; // double check on what the Node constructor does!
-    Node *newNode = n;                       // newNode points to n which is a new Node object
+    Node *n = new Node{head->data, nullptr};
+    Node *newNode = n; // this is to prevent memory leak!
     for (; c != nullptr; n = n->next, c = c->next)
         n->next = new Node{c->data, nullptr};
-    return newNode; // newNode is the copy of the orginal node...
+    return newNode;
 }
 
 int list::compare(Node *lhs, Node *rhs)
 {
     Node *l = lhs;
     Node *r = rhs;
-    for (int i = 0; l != nullptr && r != nullptr; l = l->next, r = r->next, ++i)
+    for (int i = 0; l != nullptr && right != nullptr; l = l->next, r = r->next, ++i)
         if (l->data != r->data)
             return (l->data - r->data);
     if (l == nullptr)
-        return (r == nullptr) ? 0 : (-(r->data));
-    return (l->data);
+        return (r == nullptr) ? 0 : (-(r->data)); // if left is null and right is null, it will return 0.
+    return (l->data);                             // if left is null and right is not null, it will return the negative value of data r.
 }
 
 int list::compare(Node *lhs, Node *rhs, int n)
@@ -70,54 +71,56 @@ int list::compare(Node *lhs, Node *rhs, int n)
     if (i == n)
         return 0;
     if (l == nullptr)
-        return (r == nullptr) ? 0 : (-(r->data)); // wtf is this...
+        return (r == nullptr) ? 0 : -(r->data);
     return (l->data);
-
 }
 
 Node *list::reverse(Node *head)
 {
-    Node *r = nullptr; // this is the one that contains the reverse.
+    Node *r = nullptr;
     Node *n = head;
     for (; n != nullptr; n = n->next)
-        r = new Node{n->data, r}; // this is how to add the data in reverse?
+        r = new Node{n->data, r}; //  oh yeah cuz this just adds the data to the head (which is the front!) everytime
     return r;
 }
 
 Node *list::append(Node *lhs, Node *rhs)
 {
     if (lhs == nullptr)
-        return list::copy(rhs); // if the left side is empty, you take the right side
+        return list::copy(rhs); // make sure we copy to prevent memory leaks!
     if (rhs == nullptr)
-        return list::copy(lhs); // if the right side is empty, you take the left side
-
-    Node *l = list::copy(lhs); // l takes the copy of lhs
-    Node *r = list::copy(rhs); // r takes the copy of rhs
-    Node *n = l;               // a new pointer n points to l
+        return list::copy(lhs);
+    Node *l = list::copy(lhs);
+    Node *r = list::copy(rhs);
+    Node *n = l;
 
     for (; l->next != nullptr; l = l->next)
     {
     }            // this gets me to the last index before the nullptr
-    l->next = r; // this adds the right hand side to the left hand side
-    return n;    // finally returns n that has everything in the left hand side appended with right hand side
+    l->next = r; // then we add the entire right hand side to l!
+    return n;    // n is the pointer to l. this is to prevent memory leak once again!
 }
 
 int list::index(Node *head, Node *node)
 {
     if (head == nullptr)
-        return -1; // if the head is NULL, you can't index is
+        return -1; // if the head is null, returns -1
     Node *b = head;
-    for (int i = 0; b != nullptr; ++i, b = b->next)
+    for (int i = 0; b != nullptr; b = b->next, ++i)
         if (b == node)
-            return i; // compares index in b to a singular node
-    return -1;        // if node does not exist
+            return i; // make sure you have i in the for loop because you're trying to find the index.
+    return -1;
 }
 
 Node *list::find_char(Node *head, char c)
 {
     if (head == nullptr)
         return nullptr;
-    return (head->data == c) ? head : find_char(head->next, c); // recursion to find the character!
+    return (head->data == c) ? head : find_char(head->next, c); // checks if character exists.
+                                                                // if true, it stops after it runs head
+                                                                // if false, it runs the recursion again...
+                                                                // if the recursion runs but hits the end and it doesn't find the character
+                                                                // it returns nullptr from the if statement above!
 }
 
 // i dont like haystack and needle ;-;
