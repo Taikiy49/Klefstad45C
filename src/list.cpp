@@ -10,17 +10,15 @@ Node *list::from_string(const char *s)
     return (*s == '\0') ? nullptr : new Node{*s, from_string(&s[1])};
 }
 
-void list::free(Node *head)
-{
-    Node *current = head; // creates a new ptr that stores head.
-    while (current != nullptr)
-    {                               // while that ptr is not null...
-        Node *next = current->next; // a new ptr will be equal to the next index in current.
-        delete current;             // then we delete current so we can set current to a new value.
-        current = next;             // current equals next and checks through the while loop once again.
+void list::free(Node *head){
+    for (Node *current = head; current != nullptr;){
+        Node *next = current->next; // creates a new node that takes the next index. we need this as a placeholder.
+        delete current; // now we delete current.
+        current = next; // and current becomes the next index. this will continue until current hits a nullptr!
     }
     head = nullptr;
 }
+
 
 void list::print(ostream &out, Node *head)
 {
@@ -35,6 +33,7 @@ int list::length(Node *head)
         ++i;
     return i;
 }
+
 
 Node *list::copy(Node *head)
 {
