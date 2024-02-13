@@ -101,8 +101,8 @@ Node *list::append(Node *lhs, Node *rhs)
    Node *r = list::copy(rhs);
    Node *n = l;
 
-
-   for (; l != nullptr; l = l->next){} // this gets me to the last index before the nullptr
+    //  l->next != nullptr because to reduce the risk of memory leaks. 
+   for (; l->next != nullptr; l = l->next){} // this gets me to the last index before the nullptr
    l->next = r; // then we add the entire right hand side to l!
    return n;    // n is the pointer to l. this is to prevent memory leak once again!
 }
