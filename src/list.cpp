@@ -95,10 +95,10 @@ Node *list::reverse(Node *head)
 
 Node *list::append(Node *lhs, Node *rhs)
 {
-   if (lhs == nullptr) return rhs;
-   if (rhs == nullptr) return lhs;
-   Node *l = lhs;
-   Node *r = rhs;
+   if (lhs == nullptr) return list::copy(rhs);
+   if (rhs == nullptr) return list::copy(lhs);
+   Node *l = list::copy(lhs);
+   Node *r = list::copy(rhs);
    Node *n = l;
 
 
