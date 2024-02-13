@@ -43,14 +43,8 @@ int list::length(Node *head)
 
 Node *list::copy(Node *head)
 {
-   if (head == nullptr)
-       return nullptr; // if no value for head, return NULL
-   Node *c = head->next;
-   Node *n = new Node{head->data, nullptr};
-   Node *newNode = n; // this is to prevent memory leak!
-   for (; c != nullptr; n = n->next, c = c->next)
-       n->next = new Node{c->data, nullptr};
-   return newNode;
+    return (head==nullptr) ? nullptr: new Node{head->data, copy(head->next)};
+}
 }
 
 
