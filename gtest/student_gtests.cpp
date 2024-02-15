@@ -103,7 +103,7 @@ TEST(ListTests, Indexing) {
     list::free(a);
 }
 
-EST(ListTests, CharFinding) {
+TEST(ListTests, CharFinding) {
     Node* const a = list::from_string("12345678");
     Node* b = list::find_char(a, '4');
     Node* c = list::find_char(a, '1');
