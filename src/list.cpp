@@ -45,7 +45,7 @@ Node *list::copy(Node *head)
 {
     return (head==nullptr) ? nullptr: new Node{head->data, copy(head->next)};
 }
-}
+
 
 
 int list::compare(Node *lhs, Node *rhs)
