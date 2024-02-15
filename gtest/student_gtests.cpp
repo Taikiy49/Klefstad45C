@@ -35,10 +35,10 @@ TEST(ListTests, Length) {
 // the format of `TEST(ListTests, <TestName>){}`.
 
 TEST(ListTests, Comparison) {
-    Node* const head1 = list::from_string("Hello taiki");
-    Node* const head2 = list::from_string("He said.");
-    Node* const head3 = list::from_string("Hello taiki");
-    Node* const head4 = list::from_string("Hello mari");
+    Node* const head1 = list::from_string("I said so.");
+    Node* const head2 = list::from_string("I did not.");
+    Node* const head3 = list::from_string("I said so.");
+    Node* const head4 = list::from_string("I said");
     ASSERT_NE(list::compare(head1, head2), 0);
     ASSERT_NE(list::compare(head2, head3), 0);
     ASSERT_EQ(list::compare(head1, head3), 0);
