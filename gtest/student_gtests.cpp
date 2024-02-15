@@ -55,62 +55,6 @@ TEST(ListTests, Comparison) {
     list::free(head4);
 }
 
-TEST(ListTests, Copy){
-    Node *const head = list::from_string("taiki");
-    Node *const copy_head = list::copy(head);
-    ASSERT_EQ(list::compare(head, copy_head), 0);
-    list::free(head);
-    list::free(copy_head);
-}
-
-TEST(ListTests, Reverse){
-    Node *const head = list::from_string("helloworld");
-    Node *const prhead = list::from_string("dlrowolleh");
-    Node *const rhead = list::reverse(head);
-    EXPECT_EQ(list::compare(rhead, prhead), 0);
-    list::free(head);
-    list::free(prhead);
-    list::free(rhead);
-
-    Node *const h1 = list::from_string("i");
-    Node *const h2 = list::reverse(h1);
-    EXPECT_EQ(list::compare(h1, h2), 0);
-    list::free(h1);
-    list::free(h2);
-}
-
-TEST(ListTests, Append){
-    Node *const a = list::from_string("i");
-    Node *const b = list::from_string("i");
-    Node *const c = list::append(a, b);
-    Node *const d = list::append(a, a);
-
-    EXPECT_EQ(list::compare(c, d), 0);
-    list::free(a);
-    list::free(b);
-    list::free(c);
-    list::free(d);
-
-    Node* const e = list::from_string("some");
-    Node* const f = list::from_string("thing");
-    Node* const g = list::append(e, f);
-    Node* const h = list::from_string("something");
-
-    EXPECT_EQ(list::compare(g, h), 0);
-    list::free(e);
-    list::free(f);
-    list::free(g);
-    list::free(h);
-}
-
-TEST(ListTests, Indexing) {
-    Node* const a = list::from_string("1234567");
-    Node* b = a->next->next->next;
-    int n = list::index(a, b);
-    EXPECT_EQ(n, 3);
-
-    list::free(a);
-}
 
 TEST(ListTests, CharFinding) {
     Node* const a = list::from_string("12345678");
@@ -160,3 +104,61 @@ TEST(ListTests, GetLast) {
     list::free(a);
 }
 
+
+
+TEST(ListTests, Copy){
+    Node *const head = list::from_string("taiki");
+    Node *const copy_head = list::copy(head);
+    ASSERT_EQ(list::compare(head, copy_head), 0);
+    list::free(head);
+    list::free(copy_head);
+}
+
+TEST(ListTests, Reverse){
+    Node *const head = list::from_string("helloworld");
+    Node *const prhead = list::from_string("dlrowolleh");
+    Node *const rhead = list::reverse(head);
+    EXPECT_EQ(list::compare(rhead, prhead), 0);
+    list::free(head);
+    list::free(prhead);
+    list::free(rhead);
+
+    Node *const h1 = list::from_string("i");
+    Node *const h2 = list::reverse(h1);
+    EXPECT_EQ(list::compare(h1, h2), 0);
+    list::free(h1);
+    list::free(h2);
+}
+
+TEST(ListTests, Append){
+    Node *const a = list::from_string("i");
+    Node *const b = list::from_string("i");
+    Node *const c = list::append(a, b);
+    Node *const d = list::append(a, a);
+
+    EXPECT_EQ(list::compare(c, d), 0);
+    list::free(a);
+    list::free(b);
+    list::free(c);
+    list::free(d);
+
+    Node* const e = list::from_string("taiki");
+    Node* const f = list::from_string("yama");
+    Node* const g = list::append(e, f);
+    Node* const h = list::from_string("taikiyama");
+
+    EXPECT_EQ(list::compare(g, h), 0);
+    list::free(e);
+    list::free(f);
+    list::free(g);
+    list::free(h);
+}
+
+TEST(ListTests, Indexing) {
+    Node* const a = list::from_string("1234567");
+    Node* b = a->next->next->next->next;
+    int n = list::index(a, b);
+    EXPECT_EQ(n, 4);
+
+    list::free(a);
+}
