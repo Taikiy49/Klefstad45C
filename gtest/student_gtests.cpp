@@ -34,16 +34,25 @@ TEST(ListTests, Length) {
 // Add remaining tests below. All tests should follow
 // the format of `TEST(ListTests, <TestName>){}`.
 
-TEST(ListTest, Comparison){
-    Node *const head1 = list::from_string("hello taiki");
-    Node *const head2 = list::from_string("hello bob");
-    Node *const head3 = list::from_string("hello taiki");
+TEST(ListTests, Comparison) {
+    Node* const head1 = list::from_string("Hello taiki");
+    Node* const head2 = list::from_string("He said.");
+    Node* const head3 = list::from_string("Hello taiki");
+    Node* const head4 = list::from_string("Hello mari");
     ASSERT_NE(list::compare(head1, head2), 0);
+    ASSERT_NE(list::compare(head2, head3), 0);
     ASSERT_EQ(list::compare(head1, head3), 0);
-    ASSERT_EQ(list::compare(head1, head2, 4), 0);
+    ASSERT_EQ(list::compare(head1, head1), 0);
+    ASSERT_EQ(list::compare(head2, head2, 2), 0);
+    ASSERT_EQ(list::compare(head1, head2, 1), 0); 
+    ASSERT_NE(list::compare(head1, head4), 0);
+    ASSERT_NE(list::compare(head4, head1), 0);
+    ASSERT_EQ(list::compare(head4, head1, 6), 0);
+    ASSERT_EQ(list::compare(head1, head4, 6), 0);
     list::free(head1);
     list::free(head2);
     list::free(head3);
+    list::free(head4);
 }
 
 TEST(ListTests, Copy){
