@@ -17,10 +17,12 @@ double Rectangle::area() const
 
 void Rectangle::draw(ostream &out) const
 {
-    for (int i = 0; i < height; i += 2)
-        for (int j = 0; j < width; ++j)
+    for (int i = 0; i < height; i += 2){
+        for (int j = 0; j < width; ++j){
             out << '*';
+        }
         out << '\n';
+    }
 }
 
 Rectangle* Rectangle::clone() const{

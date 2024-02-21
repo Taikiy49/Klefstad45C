@@ -5,7 +5,7 @@
 
 class Circle : public Shape{
 public:
-    Cricle(Point center, string name, int radius);
+    Circle(Point center, string name, int radius);
 
     double area() const override;
     void draw(ostream &out) const override;

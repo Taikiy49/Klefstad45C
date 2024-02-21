@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Circle::Cricle(Point center, string name, int radius) : Shape(center, name)
+Circle::Circle(Point center, string name, int radius) : Shape(center, name)
 {
     this->radius = radius;
 }
@@ -23,6 +23,6 @@ void Circle::draw(ostream &out) const
 }
 
 double Circle::area() const{
-    const double pi = pi_v<double>;
+    const double pi = numbers::pi_v<double>;
     return radius*radius*pi;
 }

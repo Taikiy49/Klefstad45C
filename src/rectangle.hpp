@@ -5,7 +5,7 @@
 
 class Rectangle : public Shape{
 public:
-    Rectangle(Point center, string name, int width, int height)
+    Rectangle(Point center, string name, int width, int height);
 
     double area() const override;
     void draw(ostream &out) const override;
