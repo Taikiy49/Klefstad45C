@@ -36,15 +36,9 @@ void Picture::swap(Picture &other){
 }
 
 Picture &Picture::operator=(const Picture &other){ // copy assignment
-    if (&other==this) return *this;
-    ListNode *h = nullptr;
-    ListNode *prev = nullptr;
-    for (ListNode *n = other.head; n != nullptr; prev = h, n = n->next){
-        h = new ListNode((n->shape)->clone(), nullptr);
-        if (!head) head = h;
-        if (!prev) prev->next = h;
-    }
-    tail = prev;
+    if (&other == this) return *this;
+    Picture temp(other);
+    swap(temp);
     return *this;
 }
 
