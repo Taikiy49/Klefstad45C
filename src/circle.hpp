@@ -1,3 +1,20 @@
+#ifndef CIRCLE_HPP
+#define CIRCLE_HPP
+
 #include "shape.hpp"
 
-// class Circle 
+class Circle : public Shape{
+public:
+    Cricle(Point center, string name, int radius);
+
+    double area() const override;
+    void draw(ostream &out) const override;
+    Circle *clone() const override;
+protected:
+    Circle(const Circle &other) = default;
+private:
+    int radius;
+};
+
+#endif
+
