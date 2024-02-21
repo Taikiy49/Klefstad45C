@@ -10,8 +10,7 @@ Triangle::Triangle(Point center, string name, int base, int height) : Shape(cent
 }
 
 double Triangle::area() const{
-    double a = base*height / 2;
-    return a;
+    return ((double)base*height/2);
 }
 
 void Triangle::draw(ostream& out) const{
