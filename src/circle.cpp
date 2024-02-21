@@ -16,10 +16,12 @@ Circle *Circle::clone() const
 
 void Circle::draw(ostream &out) const
 {
-    for (int y = -radius; y <= radius; y += 2)
-        for (int x = -radius; x <= radius; ++x)
+    for (int y = -radius; y <= radius; y += 2){
+        for (int x = -radius; x <= radius; ++x){
             out << (x * x + y * y <= radius * radius ? '*' : ' ');
-    out << '\n';
+        }
+        out << '\n';
+    }
 }
 
 double Circle::area() const{
