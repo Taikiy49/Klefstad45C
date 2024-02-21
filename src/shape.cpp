@@ -9,6 +9,6 @@ Shape::Shape(Point center, string name){
 }
 
 void Shape::print(ostream &out) const{
-    out << name << " at " << "\\(" << center.x << ", ?" << center.y << "\\) " <<
-        << "area = " << area() << endl;
+    out << name << " at " << "\\(" << center.x << ", ?" << center.y << "\\) " 
+    << "area = " << area() << endl;
 }
