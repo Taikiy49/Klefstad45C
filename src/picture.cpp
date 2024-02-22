@@ -2,21 +2,14 @@
 #include <iostream>
 #include <utility>
 
-Picture::Picture(){
+Picture::Picture(){ // this creates and empty picture
     head = nullptr;
     tail = nullptr;
-}
+} 
 
 Picture::Picture(const Picture &other){ // copy constructor
-    head = nullptr;
-    ListNode *h = nullptr;
-    ListNode *prev = nullptr;
-    for (ListNode *n = other.head; n!= nullptr; prev = h, n = n->next){
-        h = new ListNode((n->shape)->clone(), nullptr);
-        if (!head) head = h;
-        if (prev) prev->next = h;
-    }
-    tail = prev;
+    Picture temp(other);
+    swap(temp);
 }
 
 Picture::Picture(Picture &&other){ // move constructor
