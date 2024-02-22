@@ -18,7 +18,6 @@ Picture::Picture(const Picture &other) {
     }
 }
 
-
 Picture::Picture(Picture &&other){ // move constructor
     head = other.head;
     tail = other.tail;
@@ -36,7 +35,6 @@ void Picture::swap(Picture &other){
 }
 
 Picture &Picture::operator=(const Picture &other){ // copy assignment
-    if (&other == this) return *this;
     Picture temp(other);
     swap(temp);
     return *this;
