@@ -2,14 +2,12 @@
 #include <iostream>
 #include <utility>
 
-Picture::Picture()
-{ // this creates and empty
+Picture::Picture(){ // this creates and empty
     head = nullptr;
     tail = nullptr;
 }
 
-Picture::Picture(const Picture &other)
-{
+Picture::Picture(const Picture &other){
     head = nullptr;
     tail = nullptr;
     for (ListNode *n = other.head; n != nullptr; n = n->next)
