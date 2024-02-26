@@ -12,7 +12,7 @@ public:
     Array() : len{0}, buf{nullptr} {}
 
     // construct array of given length.
-    explicit Array(int len) : len(len), buf{new int[len]} {}
+    explicit Array(int len) : len{len}, buf{new int[len]} {}
 
     // copy constructor!
     Array(const Array &other) : len{other.len}, buf{new int[other.len]} {
@@ -22,11 +22,11 @@ public:
 
 
     // move constructor
-    Array(Array &&other) noexcept[
+    Array(Array &&other) noexcept{
         len = other.len;
         buf = other.buf;
         other.buf = nullptr;
-    ]
+    }
 
     // swaps 2 arrays
     // friend function?

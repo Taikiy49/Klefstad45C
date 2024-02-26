@@ -25,7 +25,7 @@ Array<T> operator*(const Matrix<T> &mat, const Array<T> &arr){
 }
 
 template <typename T>
-T ask_for(const String &message, T value = T{}){
+T ask_for(const string &message, T value = T{}){
     cout << message;
     cin >> value;
     return value;

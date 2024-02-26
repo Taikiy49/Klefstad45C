@@ -32,7 +32,7 @@ public:
     }
 
     template <typename Fn>
-    void fill_with_fn(Fn, fn){
+    void fill_with_fn(Fn fn){
         for (int i=0; i<rows; ++i)
             for (int j=0; j<cols; ++j)
                 data[i][j] = fn(i, j);
