@@ -19,7 +19,11 @@ public:
         for (int i=0; i<len; ++i)
             buf[i] = other.buf[i];
     }
-
+    Array(Array&& other) noexcept {
+        len = other.len;
+        buf = other.buf;
+        other.buf = nullptr;
+    }
     ~Array() {
         delete[] buf;
         buf = nullptr;
@@ -29,12 +33,6 @@ public:
         return len;
     }
 
-
-    Array(Array&& other) noexcept {
-        len = other.len;
-        buf = other.buf;
-        other.buf = nullptr;
-    }
 
     friend void swap(Array& lhs, Array& rhs) noexcept {
         std::swap(lhs.len, rhs.len);
