@@ -7,7 +7,7 @@ int main(){
     ifstream stopwords_file{"stopwords.txt"};
     const auto stopwords = load_stopwords(stopwords_file);
 
-    ifstream document{"sample_doc.txt"}
+    ifstream document{"sample_doc.txt"};
     const auto word_counts = count_words(document, stopwords);
 
     ofstream output{"frequency.txt"};
