@@ -31,7 +31,7 @@ public:
 
         explicit ListIterator(std::shared_ptr<ListNode> ptr = nullptr)
         {
-            this->ptr = ptr; // Copies the shared pointer.
+            this->ptr = ptr;
         }
 
         ListIterator &operator++()
