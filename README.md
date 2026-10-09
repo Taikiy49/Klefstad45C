@@ -1,3 +1,16 @@
+<div align="center">
+  <h1>Klefstad45C</h1>
+  <p>ICS 45C course repository with instructor-provided setup material and branch-based homework.</p>
+</div>
+
+## About this repository
+
+This repository preserves coursework and instructor-provided build/test scaffolding from UCI. Homework is organized across branches; the original instructions below describe the current default branch. Course authors retain attribution for their templates and instructions. This repository is a learning archive, not an independently authored teaching framework.
+
+Use `git branch -r` to inspect available homework branches.
+
+---
+
 # ICS 45C:
 
 Welcome to the ICS 45C GitHub landing page! This GitHub project will contain all of the project
